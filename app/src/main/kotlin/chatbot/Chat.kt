@@ -47,6 +47,10 @@ val messageList = mutableListOf(ChatMessage(role = ChatRole.System, content = sy
 val config = OpenAIConfig(token = token, timeout = Timeout(socket = 30.seconds), logLevel = LogLevel.None)
 val openAI = OpenAI(config)
 
+fun getSystem(): String {
+    return systemPrompt
+}
+
 @OptIn(BetaOpenAI::class)
 fun clear() {
     messageList.clear()

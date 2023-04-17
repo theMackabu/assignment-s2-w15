@@ -39,6 +39,17 @@ public class Main {
 
             /* Ask GPT-3 user input, catch any errors */
             try { Chat.askQuestion(question.readLine()); } catch (Exception e) { System.err.println(e); }
+            /* 
+            * maybe add a prefix with their name, if you can find it 
+            * hint: System.out.println(Chat.System.getSystemPrompt());
+            * if you really want a challenge, maybe try to add markdown
+            * formatting or colors to their answers.
+            */
         }
     }
 }
+
+/* 
+*Check out Custom.java and Prompts.java for more information
+* be creative and try to extend this chatbot.
+*/
