@@ -2,6 +2,8 @@
 ## Week 15 - Chatbot
 ### Setup Instructions
 
+*If you are feeling advanced enough check out [ADVANCED.md](ADVANCED.md) (Not reccomended for most people)*
+
 1. Create a new codespace
 <img width="316" alt="image" src="https://user-images.githubusercontent.com/32078755/232625592-e42f0582-b155-4ec1-b335-d0f63b6d3c85.png">
 
