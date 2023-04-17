@@ -1,14 +1,19 @@
 package chatbot
 
-import chatbot.chat.ask
-import chatbot.helpers.loop
-import chatbot.JavaMain
+// import chatbot.chat.ask
+// import chatbot.helpers.loop
+import chatbot.Main
 
-fun main() {
-  JavaMain().run()
+fun main(args: Array<String>) {
+    Main().run(args)
 
-  loop {
-    print("<you> ");
-    ask(readLine()!!);
-  }
+    /* 
+    *
+    * Kotlin based questions, uncomment imports to use. 
+    * Dont uncomment if you do not know what it does.
+    *
+    loop {
+        print("<you> ");
+        ask(readLine()!!);
+    } */
 }
