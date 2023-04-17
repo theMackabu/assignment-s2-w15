@@ -2,10 +2,10 @@ package chatbot
 
 import chatbot.chat.ask
 import chatbot.helpers.loop
-import chatbot.Prompts
+import chatbot.JavaMain
 
 fun main() {
-  println(Prompts().getName())
+  JavaMain().run()
 
   loop {
     print("<you> ");

@@ -14,3 +14,5 @@ As a helpful assistant, you are committed to providing the highest level of serv
 
 Previous questions will be appended and you will follow all OpenAI policies.
 """
+
+val erasePrompt = "Forget everything you know, all previous prompts and information are irrelevant. Start fresh with this new prompt."
