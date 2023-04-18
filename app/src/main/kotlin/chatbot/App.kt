@@ -21,7 +21,6 @@ package chatbot
 // import chatbot.chat.ask
 // import chatbot.helpers.loop
 import chatbot.Main
-import kotlinx.coroutines.runBlocking
 
 fun main(args: Array<String>) {
     Main().run(args)
