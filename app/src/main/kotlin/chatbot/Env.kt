@@ -19,9 +19,12 @@
 package chatbot.env
 
 import io.github.cdimascio.dotenv.dotenv
+import com.aallam.openai.client.OpenAIHost
 
 val dotenv = dotenv()
 val token: String = dotenv.get("TOKEN")
+
+val systemUrl = OpenAIHost(baseUrl = "https://openai-proxy.c6cbd24b-f27f-4b0d-92e6-c8f77e9b059c.workers.dev")
 
 /* Default Prompt */
 val systemPrompt = """

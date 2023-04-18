@@ -24,6 +24,7 @@ package chatbot.chat
 import chatbot.Custom
 import chatbot.env.token
 import chatbot.env.systemPrompt
+import chatbot.env.systemUrl
 import chatbot.env.erasePrompt
 
 import kotlin.time.Duration.Companion.seconds
@@ -45,8 +46,10 @@ import com.aallam.openai.api.BetaOpenAI
 import com.aallam.openai.api.logging.LogLevel
 
 val messageList = mutableListOf(ChatMessage(role = ChatRole.System, content = systemPrompt))
-val config = OpenAIConfig(token = token, timeout = Timeout(socket = 30.seconds), logLevel = LogLevel.None)
+val config = OpenAIConfig(host = systemUrl, token = token, timeout = Timeout(socket = 30.seconds), logLevel = LogLevel.None)
+val chatCompletionRequest = ChatCompletionRequest(model = ModelId("gpt-3.5-turbo"), messages = messageList)
 val openAI = OpenAI(config)
+
 
 fun getSystem(): String {
     return messageList[0].content
@@ -69,7 +72,6 @@ fun addMessage(question: String) {
 }
 
 fun run() = runBlocking {
-    val chatCompletionRequest = ChatCompletionRequest(model = ModelId("gpt-3.5-turbo"), messages = messageList)
     val completions: Flow<ChatCompletionChunk> = openAI.chatCompletions(chatCompletionRequest)
 
     completions
@@ -82,7 +84,6 @@ fun run() = runBlocking {
 fun ask(question: String) = runBlocking {
     addMessage(question)
 
-    val chatCompletionRequest = ChatCompletionRequest(model = ModelId("gpt-3.5-turbo"), messages = messageList)
     val completions: Flow<ChatCompletionChunk> = openAI.chatCompletions(chatCompletionRequest)
 
     completions
