@@ -32,7 +32,6 @@ public class Main {
 
         /* Greet the user */
         Chat.askQuestion("Tell me a greeting");
-        System.out.println(Chat.System.getSystemPrompt());
         
         /* Respond to user input */
         for (;;) {
