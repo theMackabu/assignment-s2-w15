@@ -26,7 +26,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
-    public void run(String[] args) {
+    public void run(String[] args) throws Exception {
         /* Get user input */
         BufferedReader question = new BufferedReader(new InputStreamReader(System.in)); 
 
@@ -51,5 +51,7 @@ public class Main {
 
 /* 
 *Check out Custom.java and Prompts.java for more information
-* be creative and try to extend this chatbot.
+* be creative and try to extend this chatbot. All interfaces can
+* be found in Chat.java. Maybe do something with arrays too.
+* Check out App.kt for a suprise.
 */

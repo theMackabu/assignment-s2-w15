@@ -25,6 +25,8 @@ import chatbot.env.systemPrompt
 import chatbot.env.erasePrompt
 
 import kotlin.time.Duration.Companion.seconds
+import kotlin.system.exitProcess
+
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.onCompletion
@@ -96,4 +98,9 @@ fun ask(question: String) = runBlocking {
     .onCompletion { println() }
     .launchIn(this)
     .join()
+
+    /* Extend this if you want, this exits the program on the word "bye" */
+    if (question.contains("bye") || question.contains("cya")) {
+        exitProcess(0)
+    }
 }

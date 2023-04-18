@@ -8,6 +8,7 @@ public class Prompts {
     * 
     * For example:
     * import chatbot.Chat;
+    * Chat.clear();
     * Chat.newSystemPrompt("Your name is now bob. Please add bob the builder jokes to every answer");
     * 
     * This code is not fully functional, you need to add the class builder yourself.

@@ -21,12 +21,12 @@ package chatbot
 // import chatbot.chat.ask
 // import chatbot.helpers.loop
 import chatbot.Main
+import kotlinx.coroutines.runBlocking
 
 fun main(args: Array<String>) {
     Main().run(args)
 
     /* 
-    *
     * Kotlin based questions, uncomment imports to use. 
     * Dont uncomment if you do not know what it does.
     *
@@ -34,4 +34,10 @@ fun main(args: Array<String>) {
         print("<you> ");
         ask(readLine()!!);
     } */
+
+    /*
+    * Print goodbye before closing, you could add a handler
+    * that exits the program when "bye" is mentioned in
+    * the Java part of this code. Nice that you checked here!
+    */
 }
