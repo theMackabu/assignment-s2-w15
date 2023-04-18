@@ -18,15 +18,15 @@
 
 @file:JvmName("Interface")
 @file:JvmMultifileClass
+@file:OptIn(BetaOpenAI::class)
 package chatbot.chat
 
+import chatbot.Custom
 import chatbot.env.token
 import chatbot.env.systemPrompt
 import chatbot.env.erasePrompt
 
 import kotlin.time.Duration.Companion.seconds
-import kotlin.system.exitProcess
-
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.onCompletion
@@ -44,36 +44,30 @@ import com.aallam.openai.api.chat.ChatCompletionChunk
 import com.aallam.openai.api.BetaOpenAI
 import com.aallam.openai.api.logging.LogLevel
 
-@OptIn(BetaOpenAI::class)
 val messageList = mutableListOf(ChatMessage(role = ChatRole.System, content = systemPrompt))
 val config = OpenAIConfig(token = token, timeout = Timeout(socket = 30.seconds), logLevel = LogLevel.None)
 val openAI = OpenAI(config)
 
 fun getSystem(): String {
-    return systemPrompt
+    return messageList[0].content
 }
 
-@OptIn(BetaOpenAI::class)
 fun clear() {
     messageList.clear()
 }
 
-@OptIn(BetaOpenAI::class)
 fun addSystem(prompt: String) {
     messageList.add(ChatMessage(role = ChatRole.System, content = prompt))
 }
 
-@OptIn(BetaOpenAI::class)
 fun newSystem(prompt: String) {
     messageList.add(ChatMessage(role = ChatRole.System, content = "$erasePrompt. $prompt"))
 }
 
-@OptIn(BetaOpenAI::class)
 fun addMessage(question: String) {
     messageList.add(ChatMessage(role = ChatRole.User, content = question))
 }
 
-@OptIn(BetaOpenAI::class)
 fun run() = runBlocking {
     val chatCompletionRequest = ChatCompletionRequest(model = ModelId("gpt-3.5-turbo"), messages = messageList)
     val completions: Flow<ChatCompletionChunk> = openAI.chatCompletions(chatCompletionRequest)
@@ -85,8 +79,6 @@ fun run() = runBlocking {
     .join()
 }
 
-
-@OptIn(BetaOpenAI::class)
 fun ask(question: String) = runBlocking {
     addMessage(question)
 
@@ -99,8 +91,6 @@ fun ask(question: String) = runBlocking {
     .launchIn(this)
     .join()
 
-    /* Extend this if you want, this exits the program on the word "bye" */
-    if (question.contains("bye") || question.contains("cya")) {
-        exitProcess(0)
-    }
+    /* Congrats, you found the extended hook (Custom.java) */
+    Custom.Hooks.addShutdownHook(question);
 }
