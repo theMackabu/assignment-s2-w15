@@ -94,4 +94,5 @@ fun ask(question: String) = runBlocking {
 
     /* Congrats, you found the extended hook (Custom.java) */
     Custom.Hooks.addShutdownHook(question);
+    Custom.Hooks.makeAngry(question);
 }

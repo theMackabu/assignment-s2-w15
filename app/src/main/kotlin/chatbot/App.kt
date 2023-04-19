@@ -25,8 +25,8 @@ import chatbot.Main
 fun main(args: Array<String>) {
     Main().run(args)
 
-    /* 
-    * Kotlin based questions, uncomment imports to use. 
+    /*
+    * Kotlin based questions, uncomment imports to use.
     * Dont uncomment if you do not know what it does.
     *
     loop {

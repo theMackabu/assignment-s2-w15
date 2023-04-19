@@ -16,6 +16,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+@file:JvmName("Vars")
 package chatbot.env
 
 import io.github.cdimascio.dotenv.dotenv
